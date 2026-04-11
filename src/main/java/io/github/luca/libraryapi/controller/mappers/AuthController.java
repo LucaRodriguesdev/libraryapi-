@@ -1,9 +1,6 @@
 package io.github.luca.libraryapi.controller.mappers;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -21,5 +18,10 @@ public class AuthController {
         }
 
         throw new RuntimeException("Credenciais inválidas");
+    }
+
+    @GetMapping("/hash")
+    public String hash() {
+        return new org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder(10).encode("123456");
     }
 }
