@@ -37,7 +37,7 @@ public class CustomRegisteredClientRepository implements RegisteredClientReposit
         return RegisteredClient
                 .withId(client.getId().toString())
                 .clientId(client.getClientId())
-                .clientSecret(client.getClientSecret())
+                .clientSecret("{bcrypt}" + client.getClientSecret())
                 .redirectUri(client.getRedirectURI())
                 .scope(client.getScope())
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
