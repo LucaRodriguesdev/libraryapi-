@@ -52,7 +52,7 @@ public class AuthorizationServerConfiguration {
         http.oauth2ResourceServer(oauth2Rs -> oauth2Rs.jwt(Customizer.withDefaults()));
 
         http.formLogin(configurer -> configurer.loginPage("/login"));
-
+        http.csrf(csrf -> csrf.ignoringRequestMatchers("/oauth2/token"));
         return http.build();
     }
 
