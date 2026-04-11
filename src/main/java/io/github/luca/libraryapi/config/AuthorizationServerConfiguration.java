@@ -53,6 +53,7 @@ public class AuthorizationServerConfiguration {
 
         http.formLogin(configurer -> configurer.loginPage("/login"));
         http.csrf(csrf -> csrf.ignoringRequestMatchers("/oauth2/token"));
+        http.cors(Customizer.withDefaults());
         return http.build();
     }
 
